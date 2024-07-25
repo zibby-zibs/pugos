@@ -64,15 +64,11 @@ const Rafflepage = ({ open, setOpen }: Props) => {
             </section>
           </div>
 
-          <div className="field-row raised-body flex gap-5 lg:gap-10 items-center !p-6">
-            <p className="text-base !font-medium">Play Amount</p>
-            <input
-              placeholder="Enter amount"
-              type="number"
-              className="w-full"
-            />
+          <div className="field-row raised-body flex gap-5 lg:gap-10 items-center !p-6 text-lg font-semibold">
+            <p className="text-base ">Time to next game</p>
+            <p>0.0000</p>
           </div>
-          <div className="window-body">
+          <div className="window-body !px-6">
             <article className="flex items-center gap-5">
               <p>Preset Exit Amount</p>
               <input type="checkbox" />
@@ -88,6 +84,26 @@ const Rafflepage = ({ open, setOpen }: Props) => {
               <p className="text-xl">Rewards</p>
               <p className="text-xl">0.0x </p>
             </div>
+          </div>
+          <div className="!flex !justify-end">
+            <menu role="tablist">
+              <li role="tab" aria-selected="true" className="p-2">
+                HISTORY
+              </li>
+            </menu>
+          </div>
+          <div className="!w-full sunken-panel " role="tabpanel">
+            <table className="bg-[#c6c6c6] interactive w-full">
+              <thead>
+                <tr>
+                  <th>ROUND</th>
+                  <th>BREAK</th>
+                  <th>PLAY/TIME</th>
+                  <th>TOTAL PLAY</th>
+                  <th>TOTAL WON</th>
+                </tr>
+              </thead>
+            </table>
           </div>
 
           {/* <Frame variant="well" className="footer">
