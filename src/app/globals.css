@@ -6,6 +6,36 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --window-frame: #0a0a0a;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --button-highlight: #ffffff;
+  --surface: #c0c0c0;
+
+  /* Window borders flip button-face and button-highlight */
+  --border-window-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-face);
+  --border-window-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-highlight);
+
+  /* Borders */
+  --border-width: 1px;
+  --border-raised-outer: inset -4px -4px var(--window-frame),
+    inset 4px 4px var(--button-highlight);
+  --border-raised-inner: inset -6px -6px var(--button-shadow),
+    inset 6px 6px var(--button-face);
+  --border-sunken-outer: inset -1px -1px var(--button-highlight),
+    inset 1px 1px var(--window-frame);
+  --border-sunken-inner: inset -2px -2px var(--button-face),
+    inset 2px 2px var(--button-shadow);
+  --default-button-border-raised-outer: inset -2px -2px var(--window-frame),
+    inset 1px 1px var(--window-frame);
+  --default-button-border-raised-inner: inset 2px 2px var(--button-highlight),
+    inset -3px -3px var(--button-shadow), inset 3px 3px var(--button-face);
+  --default-button-border-sunken-outer: inset 2px 2px var(--window-frame),
+    inset -1px -1px var(--window-frame);
+  --default-button-border-sunken-inner: inset -2px -2px var(--button-highlight),
+    inset 3px 3px var(--button-shadow), inset -3px -3px var(--button-face);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +60,14 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.raised-body {
+  box-shadow: var(--border-window-outer), var(--border-window-inner);
+  background: var(--surface);
+  padding: 3px;
+}
+
+.extra-button {
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
