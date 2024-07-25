@@ -13,12 +13,12 @@ const Rafflepage = ({ open, setOpen }: Props) => {
     <main
       className={`${
         open
-          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50"
+          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50 bg-white/30 backdrop-blur-sm"
           : "hidden"
       }`}
     >
       <div
-        className={`min-h-screen max-h-svh overflow-hidden relative items-center justify-center w-[70%] ${
+        className={`min-h-screen animate-in duration-300 max-h-svh overflow-hidden relative items-center justify-center w-full lg:w-[70%] ${
           open ? "flex" : "hidden"
         }`}
       >
@@ -43,51 +43,113 @@ const Rafflepage = ({ open, setOpen }: Props) => {
               <button aria-label="Close" onClick={() => setOpen(false)} />
             </div>
           </section>
-
-          <div className=" w-full mt-3 raised-body !p-6">
-            <section className="flex justify-between items-center">
-              <div>
-                <p className="text-lg font-medium">Buy Tickets</p>
-                {/* <p>0.0000000</p> */}
+          <section className="flex">
+            <aside className="hidden md:block w-[40%] sunken-panel">
+              <Image
+                src={"/nft-pixel.png"}
+                alt=""
+                height={0}
+                width={0}
+                sizes="100vw"
+                className="object-cover h-full w-full"
+              />
+            </aside>
+            <aside className="w-full">
+              <div className=" w-full raised-body !p-6">
+                <section className="flex justify-between items-center">
+                  <div>
+                    <p className="text-lg font-medium">Buy Tickets</p>
+                    {/* <p>0.0000000</p> */}
+                  </div>
+                  <div>
+                    <input
+                      placeholder="Enter amount"
+                      type="number"
+                      className="w-full !border-[4px]"
+                    />
+                    <div className="flex items-center gap-2 justify-center mt-3">
+                      <button>Deposit</button>
+                      <button>Withdraw</button>
+                    </div>
+                  </div>
+                </section>
               </div>
-              <div>
+
+              <div className="field-row window-body bg-[#c6c6c6]  sunken-panel flex gap-5 lg:gap-10 items-center !p-6 text-lg font-semibold">
+                <p className="text-base ">Time to next game</p>
+                <p>0.0000</p>
+              </div>
+              <div className="window-body ">
+                <article className="flex items-center gap-5">
+                  <p className="text-sm">Preset Exit Amount</p>
+                  <input type="checkbox" />
+                </article>
                 <input
                   placeholder="Enter amount"
+                  className="rounded-tl-lg rounded-br-lg !w-[150px] "
                   type="number"
-                  className="w-full !border-[4px]"
                 />
-                <div className="flex items-center gap-2 justify-center mt-3">
-                  <button>Deposit</button>
-                  <button>Withdraw</button>
+              </div>
+              <div className="status-bar sunken-panel bg-[#c6c6c6]  window-body ">
+                <div className="p-2 px-8 status-bar-field font-semibold">
+                  <p className="text-xl">Rewards</p>
+                  <div className="mt-2 flex gap-2 flex-wrap justify-between">
+                    <div className="w-fit">
+                      <Image
+                        src={"/nft-pixel.png"}
+                        alt=""
+                        height={40}
+                        width={40}
+                        sizes="100vw"
+                        className="object-contain rounded-full"
+                      />
+                      <p className="text-center">0.x</p>
+                    </div>
+                    <div className="w-fit">
+                      <Image
+                        src={"/nft-pixel.png"}
+                        alt=""
+                        height={40}
+                        width={40}
+                        sizes="100vw"
+                        className="object-contain rounded-full"
+                      />
+                      <p className="text-center">0.x</p>
+                    </div>
+                    <div className="w-fit">
+                      <Image
+                        src={"/nft-pixel.png"}
+                        alt=""
+                        height={40}
+                        width={40}
+                        sizes="100vw"
+                        className="object-contain rounded-full"
+                      />
+                      <p className="text-center">0.x</p>
+                    </div>
+                    <div className="w-fit">
+                      <Image
+                        src={"/nft-pixel.png"}
+                        alt=""
+                        height={40}
+                        width={40}
+                        sizes="100vw"
+                        className="object-contain rounded-full"
+                      />
+                      <p className="text-center">0.x</p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </section>
-          </div>
-
-          <div className="field-row raised-body flex gap-5 lg:gap-10 items-center !p-6 text-lg font-semibold">
-            <p className="text-base ">Time to next game</p>
-            <p>0.0000</p>
-          </div>
-          <div className="window-body !px-6">
-            <article className="flex items-center gap-5">
-              <p>Preset Exit Amount</p>
-              <input type="checkbox" />
-            </article>
-            <input
-              placeholder="Enter amount"
-              className="rounded-tl-lg rounded-br-lg !w-[150px] "
-              type="number"
-            />
-          </div>
-          <div className="status-bar field-row">
-            <div className="window-body flex items-center gap-5 space-y-4 p-2 px-8 status-bar-field font-semibold">
-              <p className="text-xl">Rewards</p>
-              <p className="text-xl">0.0x </p>
-            </div>
-          </div>
-          <div className="!flex !justify-end">
+            </aside>
+          </section>
+          <div className="!flex mt-5">
             <menu role="tablist">
-              <li role="tab" aria-selected="true" className="p-2">
+              <li
+                role="tab"
+                aria-selected="true"
+                className="p-2 px-8 text-lg text-gray-600 font-medium"
+              >
                 HISTORY
               </li>
             </menu>
@@ -103,12 +165,17 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                   <th>TOTAL WON</th>
                 </tr>
               </thead>
+              <tbody>
+                <tr>
+                  <td>Nil</td>
+                  <td>Nil</td>
+                  <td>Nil</td>
+                  <td>Nil</td>
+                  <td>Nil</td>
+                </tr>
+              </tbody>
             </table>
           </div>
-
-          {/* <Frame variant="well" className="footer">
-            Put some useful information here
-          </Frame> */}
         </main>
 
         {/* <Window className="window">

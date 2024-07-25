@@ -71,3 +71,6 @@ body {
 .extra-button {
   box-shadow: var(--border-raised-outer), var(--border-raised-inner);
 }
+.sunken {
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner) !important;
+}

@@ -17,7 +17,8 @@ export function Account() {
   if (!address) return null;
   return (
     <button
-      className="flex gap-1 items-center p-3"
+      className="flex gap-1 items-center p-3 sunken"
+      type="reset"
       onClick={() => disconnect()}
     >
       <p className="text-lg">CA:</p>
