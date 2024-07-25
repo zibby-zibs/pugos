@@ -7,6 +7,7 @@ import Navbar from "./navbar";
 import Stake from "./stake";
 import Rafflepage from "./raffle-page";
 import Loader from "./loader";
+import Link from "next/link";
 
 type Props = {};
 
@@ -19,19 +20,19 @@ const Homepage = (props: Props) => {
     {
       id: 1,
       name: "Twitter",
-      link: "",
+      link: "#",
       icon: "/pixel-x.png",
     },
     {
       id: 2,
       name: "Discord",
-      link: "",
+      link: "#",
       icon: "/pixel-discord.png",
     },
     {
       id: 3,
       name: "Telegram",
-      link: "",
+      link: "#",
       icon: "/pixel-telegram.png",
     },
     {
@@ -84,19 +85,26 @@ const Homepage = (props: Props) => {
       <section className="relative flex items-start gap-5 lg:gap-8">
         <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
           {socials.map((social) => (
-            <div key={social.id} className="">
-              <Image
-                src={social.icon}
-                alt={social.name}
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="object-contain h-[80px] w-[80px]"
-              />
-              <article className="mt-2">
-                <p className="text-xl font-bold text-center">{social.name}</p>
-              </article>
-            </div>
+            <Link
+              href={social.link}
+              key={social.id}
+              className=""
+              target="_blank"
+            >
+              <div>
+                <Image
+                  src={social.icon}
+                  alt={social.name}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="object-contain h-[80px] w-[80px]"
+                />
+                <article className="mt-2">
+                  <p className="text-xl font-bold text-center">{social.name}</p>
+                </article>
+              </div>
+            </Link>
           ))}
         </aside>
         <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
