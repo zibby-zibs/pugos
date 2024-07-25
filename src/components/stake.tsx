@@ -41,14 +41,15 @@ const Stake = ({ open, setOpen }: Props) => {
               <p>Stake</p>
             </div>
 
-            <div className="title-bar-controls">
-              <button aria-label="Minimize" />
-              <button aria-label="Maximize" />
-              <button aria-label="Close" onClick={() => setOpen(false)} />
-            </div>
+            <button
+              onClick={() => setOpen(false)}
+              className="bg-[#c6c6c6] w-fit"
+            >
+              <BiX className="size-6" />
+            </button>
           </section>
 
-          <section className="raised-body w-full mt-3 p-3 !flex items-center">
+          <section className=" w-full !flex items-center">
             <div className="raised-body w-full h-24 !flex items-center justify-center gap-3 !border-y-blue-700">
               <p className="text-xl">PugOs</p>
               <div>
@@ -69,10 +70,10 @@ const Stake = ({ open, setOpen }: Props) => {
               </div>
             </div>
           </section>
-          <div className="raised-body w-full !flex items-center justify-center !border-y-blue-700">
-            <div>
+          <div className="raised-body w-full !flex items-center justify-center !border-y-blue-700 !p-4">
+            <div className="text-center w-full">
               <p className="text-lg font-bold">Total Staked Love</p>
-              <p>$119,231.23</p>
+              <p className="text-center">$119,231.23</p>
             </div>
           </div>
           <section className="raised-body w-full border-y-blue-700 !p-3">

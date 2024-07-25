@@ -81,8 +81,8 @@ const Homepage = (props: Props) => {
         alt=""
       />
 
-      <section className="relative columns-2 ">
-        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-32 w-[100px]">
+      <section className="relative flex items-start gap-5 lg:gap-8">
+        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
           {socials.map((social) => (
             <div key={social.id} className="">
               <Image
@@ -99,7 +99,7 @@ const Homepage = (props: Props) => {
             </div>
           ))}
         </aside>
-        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-32 w-[100px]">
+        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
           <div
             className="text-center cursor-pointer"
             onClick={() => setOpen(true)}
