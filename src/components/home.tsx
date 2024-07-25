@@ -36,9 +36,9 @@ const Homepage = (props: Props) => {
     },
     {
       id: 4,
-      name: "OpenSea",
-      link: "",
-      icon: "/pixel-opensea.png",
+      name: "Trade NFTs",
+      link: "https://blast.mintify.xyz/blast/0x89ae653674178738854c83426c6ac6be69900766",
+      icon: "/mintify-pixel.png",
     },
     // {
     //     id: 5,

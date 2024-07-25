@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { BiX } from "react-icons/bi";
 type Props = {
   open: boolean;
@@ -9,11 +9,12 @@ type Props = {
 };
 
 const Rafflepage = ({ open, setOpen }: Props) => {
+  const [value, setValue] = useState<number | undefined>(undefined);
   return (
     <main
       className={`${
         open
-          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50 bg-white/30 backdrop-blur-sm"
+          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50 bg-white/30 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-[0px]"
           : "hidden"
       }`}
     >
@@ -38,9 +39,11 @@ const Rafflepage = ({ open, setOpen }: Props) => {
             </div>
 
             <div className="title-bar-controls">
-              <button aria-label="Minimize" />
-              <button aria-label="Maximize" />
-              <button aria-label="Close" onClick={() => setOpen(false)} />
+              {/* <button aria-label="Minimize" />
+              <button aria-label="Maximize" /> */}
+              <button onClick={() => setOpen(false)} className="bg-[#c6c6c6] ">
+                <BiX className="size-6" />
+              </button>
             </div>
           </section>
           <section className="flex">
@@ -61,8 +64,18 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                     <p className=" font-semibold">Buy Tickets</p>
                     <p>1 ticket = 0.00002ETH</p>
                     <div>
-                      <button className="!border-4 !border-blue-700">5</button>
-                      <button className="!border-4 !border-blue-700">10</button>
+                      <button
+                        className="!border-4 !border-blue-700"
+                        onClick={() => setValue(5)}
+                      >
+                        5
+                      </button>
+                      <button
+                        className="!border-4 !border-blue-700"
+                        onClick={() => setValue(10)}
+                      >
+                        10
+                      </button>
                       {/* <button className="!border-4 !border-blue-700">20</button>
                       <button className="!border-4 !border-blue-700">50</button> */}
                     </div>
@@ -71,6 +84,8 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                     <input
                       placeholder="Enter amount"
                       type="number"
+                      value={value}
+                      onChange={(e) => setValue(Number(e.target.value))}
                       className="w-full !border-[4px]"
                     />
                     <div className="flex items-center gap-2 justify-center mt-3">
@@ -85,19 +100,15 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                 <p className="flex justify-end">0.0000</p>
               </div>
               <div className="window-body ">
-                <article className="flex items-center gap-5">
-                  <p className="text-sm">Multiplier</p>
-                  <input type="checkbox" />
+                <article className="">
+                  <p className="text-sm">
+                    Multiplier <span className="font-semibold">0.1%</span>
+                  </p>
                 </article>
-                <input
-                  placeholder="Enter amount"
-                  className="rounded-tl-lg rounded-br-lg !w-[150px] "
-                  type="number"
-                />
               </div>
               <div className="status-bar sunken-panel bg-[#c6c6c6]  window-body ">
                 <div className="p-2 px-8 status-bar-field font-semibold">
-                  <p className="text-xl">Rewards</p>
+                  <p className="">Rewards</p>
                   <div className="mt-2 flex gap-2 flex-wrap justify-between">
                     <div className="w-fit">
                       <Image
