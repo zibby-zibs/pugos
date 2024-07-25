@@ -25,13 +25,13 @@ const Stake = ({ open, setOpen }: Props) => {
     <main
       className={`${
         open
-          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50"
+          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50  animate-in duration-300"
           : "hidden"
       }`}
     >
       <div
         className={`min-h-screen max-h-svh overflow-hidden relative items-center justify-center w-[70%] ${
-          open ? "flex" : "hidden"
+          open ? "flex animate-in duration-300" : "hidden"
         }`}
       >
         <main className="window relative z-10 w-full lg:w-[70%] p-4">
@@ -41,12 +41,13 @@ const Stake = ({ open, setOpen }: Props) => {
               <p>Stake</p>
             </div>
 
-            <button
-              onClick={() => setOpen(false)}
-              className="bg-[#c6c6c6] w-fit"
-            >
-              <BiX className="size-6" />
-            </button>
+            <div className="title-bar-controls">
+              {/* <button aria-label="Minimize" />
+              <button aria-label="Maximize" /> */}
+              <button onClick={() => setOpen(false)} className="bg-[#c6c6c6] ">
+                <BiX className="size-6" />
+              </button>
+            </div>
           </section>
 
           <section className=" w-full !flex items-center">
@@ -82,50 +83,50 @@ const Stake = ({ open, setOpen }: Props) => {
                 <p className="">View Contract</p>
                 <p className="text-xl">LOVE</p>
               </div>
-              <div>
-                <div className="!flex !justify-end">
-                  <menu role="tablist">
-                    <li
-                      role="tab"
-                      aria-selected={activeTab === 0}
-                      className="p-2"
-                    >
-                      STAKE
-                    </li>
-                    <li
-                      role="tab"
-                      aria-selected={activeTab === 1}
-                      className="p-2"
-                    >
-                      UNSTAKE
-                    </li>
-                  </menu>
-                </div>
-                <div className="!w-full sunken-panel">
-                  {activeTab === 0 && (
-                    <table className="bg-[#c6c6c6] interactive !p-2">
-                      <div>
-                        <aside>
-                          <p>STAKE LOVE,</p>
-                          <p>get FAITH</p>
-                        </aside>
-                        <aside>
-                          <p>Unstaked LOVE balance</p>
-                          <p>0.000000000239443</p>
-                          <div className="flex items-center gap-2">
-                            <input
-                              placeholder="Enter amount"
-                              className="rounded-lg"
-                              type="number"
-                            />
-                            <button>max</button>
-                          </div>
-                          <button>Stake</button>
-                        </aside>
-                      </div>
-                    </table>
-                  )}
-                </div>
+            </div>
+            <div className="-mt-3">
+              <div className="!flex !justify-end">
+                <menu role="tablist">
+                  <li
+                    role="tab"
+                    aria-selected={activeTab === 0}
+                    className="p-2"
+                  >
+                    STAKE
+                  </li>
+                  <li
+                    role="tab"
+                    aria-selected={activeTab === 1}
+                    className="p-2"
+                  >
+                    UNSTAKE
+                  </li>
+                </menu>
+              </div>
+              <div className="!w-full raised-body bg-[#c6c6c6]">
+                {activeTab === 0 && (
+                  <div className=" interactive bg-[#c6c6c6] !p-2">
+                    <div className="flex justify-between gap-4">
+                      <aside>
+                        <p className="text-base">STAKE LOVE,</p>
+                        <p className="text-base">get FAITH</p>
+                      </aside>
+                      <aside>
+                        <p>Unstaked LOVE balance</p>
+                        <p>0.000000000239443</p>
+                        <div className="flex items-center gap-2">
+                          <input
+                            placeholder="Enter amount"
+                            className="rounded-lg"
+                            type="number"
+                          />
+                          <button>max</button>
+                        </div>
+                        <button className="mt-2 w-full">Stake</button>
+                      </aside>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </section>
