@@ -30,7 +30,7 @@ const Rafflepage = ({ open, setOpen }: Props) => {
         sizes="100vw"
         className="w-screen h-svh object-cover fixed top-0 left-0"
       /> */}
-        <main className="window relative z-10 w-full lg:w-[70%]">
+        <main className="window relative z-10 w-full lg:w-[70%] !text-sm">
           <section className="title-bar flex items-center justify-between">
             <div className="title-bar-text flex items-center gap-2">
               <Image src={"/raffle-icon.png"} alt="" height={20} width={20} />
@@ -44,7 +44,7 @@ const Rafflepage = ({ open, setOpen }: Props) => {
             </div>
           </section>
           <section className="flex">
-            <aside className="hidden md:block w-[40%] sunken-panel">
+            <aside className="hidden md:block w-[40%] sunken-panel shrink-0">
               <Image
                 src={"/nft-pixel.png"}
                 alt=""
@@ -55,33 +55,38 @@ const Rafflepage = ({ open, setOpen }: Props) => {
               />
             </aside>
             <aside className="w-full">
-              <div className=" w-full raised-body !p-6">
-                <section className="flex justify-between items-center">
-                  <div>
-                    <p className="text-lg font-medium">Buy Tickets</p>
-                    {/* <p>0.0000000</p> */}
+              <div className=" w-full raised-body !p-4">
+                <section className="flex justify-between items-end">
+                  <div className="space-y-2">
+                    <p className=" font-semibold">Buy Tickets</p>
+                    <p>1 ticket = 0.00002ETH</p>
+                    <div>
+                      <button className="!border-4 !border-blue-700">5</button>
+                      <button className="!border-4 !border-blue-700">10</button>
+                      {/* <button className="!border-4 !border-blue-700">20</button>
+                      <button className="!border-4 !border-blue-700">50</button> */}
+                    </div>
                   </div>
-                  <div>
+                  <div className="">
                     <input
                       placeholder="Enter amount"
                       type="number"
                       className="w-full !border-[4px]"
                     />
                     <div className="flex items-center gap-2 justify-center mt-3">
-                      <button>Deposit</button>
-                      <button>Withdraw</button>
+                      <button>Buy</button>
                     </div>
                   </div>
                 </section>
               </div>
 
-              <div className="field-row window-body bg-[#c6c6c6]  sunken-panel flex gap-5 lg:gap-10 items-center !p-6 text-lg font-semibold">
-                <p className="text-base ">Time to next game</p>
-                <p>0.0000</p>
+              <div className=" window-body bg-[#c6c6c6]  sunken-panel !p-4  font-semibold">
+                <p className="">Time to next game</p>
+                <p className="flex justify-end">0.0000</p>
               </div>
               <div className="window-body ">
                 <article className="flex items-center gap-5">
-                  <p className="text-sm">Preset Exit Amount</p>
+                  <p className="text-sm">Multiplier</p>
                   <input type="checkbox" />
                 </article>
                 <input
@@ -148,9 +153,9 @@ const Rafflepage = ({ open, setOpen }: Props) => {
               <li
                 role="tab"
                 aria-selected="true"
-                className="p-2 px-8 text-lg text-gray-600 font-medium"
+                className="p-2 px-8  text-gray-900 font-semibold"
               >
-                HISTORY
+                History
               </li>
             </menu>
           </div>
