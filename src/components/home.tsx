@@ -84,61 +84,61 @@ const Homepage = (props: Props) => {
         alt=""
       />
 
-      <section className="relative flex items-start gap-5 lg:gap-8">
-        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
-          {socials.map((social) => (
-            <Link
-              href={social.link}
-              key={social.id}
-              className=""
-              target="_blank"
-            >
-              <div>
-                <Image
-                  src={social.icon}
-                  alt={social.name}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="object-contain h-[40px] w-[40px] lg:h-[80px] lg:w-[80px]"
-                />
-                <article className="mt-2">
-                  <p className="text-xl font-bold text-center">{social.name}</p>
-                </article>
-              </div>
-            </Link>
-          ))}
-        </aside>
-        <aside className="relative z-10 p-5 h-full flex flex-col gap-10 lg:gap-20 w-[100px]">
-          <div
-            className="text-center cursor-pointer"
-            onClick={() => setOpen(true)}
+      <section className="relative flex flex-col flex-wrap gap-5 lg:gap-20 !h-[calc(100svh-100px)] p-5">
+        {/* <aside className="relative z-10 p-5 h-full w-[100px]"> */}
+        {socials.map((social) => (
+          <Link
+            href={social.link}
+            key={social.id}
+            className="w-[100px] text-center"
+            target="_blank"
           >
-            <Image
-              src={"/raffle-icon.png"}
-              alt=""
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px]"
-            />
-            <p className="text-xl font-bold">Raffle</p>
-          </div>
-          <div
-            className="text-center cursor-pointer"
-            onClick={() => setOpenStake(true)}
-          >
-            <Image
-              src={"/stake-icon.png"}
-              alt=""
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px]"
-            />
-            <p className="text-xl font-bold">Stake</p>
-          </div>
-        </aside>
+            <div>
+              <Image
+                src={social.icon}
+                alt={social.name}
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="object-contain h-[40px] w-[40px] lg:h-[50px] lg:w-[50px] mx-auto"
+              />
+              <article className="mt-2">
+                <p className="text-xl font-bold text-center">{social.name}</p>
+              </article>
+            </div>
+          </Link>
+        ))}
+        {/* </aside> */}
+        {/* <aside className="relative z-10 p-5 h-full w-[100px]"> */}
+        <div
+          className="text-center cursor-pointer w-[100px]"
+          onClick={() => setOpen(true)}
+        >
+          <Image
+            src={"/raffle-icon.png"}
+            alt=""
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px] mx-auto"
+          />
+          <p className="text-xl font-bold">Raffle</p>
+        </div>
+        <div
+          className="text-center cursor-pointer w-[100px]"
+          onClick={() => setOpenStake(true)}
+        >
+          <Image
+            src={"/stake-icon.png"}
+            alt=""
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px] mx-auto"
+          />
+          <p className="text-xl font-bold">Stake</p>
+        </div>
+        {/* </aside> */}
       </section>
       <section>
         <Rafflepage open={open} setOpen={setOpen} />
