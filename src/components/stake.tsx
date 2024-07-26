@@ -72,7 +72,7 @@ const Stake = ({ open, setOpen }: Props) => {
           </section>
           <div className="raised-body w-full !flex items-center justify-center !border-y-blue-700 !p-4">
             <div className="text-center w-full">
-              <p className="text-lg font-bold">My Total value staked($)</p>
+              <p className="text-lg font-bold">My total value staked($)</p>
               <p className="text-center">$119,231.23</p>
             </div>
           </div>
