@@ -2,8 +2,9 @@
 
 import { contractAbi, contractAddress } from "@/lib/contract-details";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiX } from "react-icons/bi";
+import { formatUnits } from "viem";
 import { useAccount, useReadContract } from "wagmi";
 type Props = {
   open: boolean;
@@ -99,7 +100,10 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                 <section className="flex justify-between items-end">
                   <div className="space-y-2">
                     <p className=" font-semibold">Buy Tickets</p>
-                    <p>1 ticket = 0.00002ETH</p>
+                    <p>
+                      1 ticket ={" "}
+                      {formatUnits((entranceFee as bigint) ?? BigInt(0), 18)}ETH
+                    </p>
                     <div>
                       <button
                         className="!border-4 !border-blue-700"
@@ -134,7 +138,9 @@ const Rafflepage = ({ open, setOpen }: Props) => {
 
               <div className=" window-body bg-[#c6c6c6]  sunken-panel !p-4  font-semibold">
                 <p className="">Time to next game</p>
-                <p className="flex justify-end">0.0000</p>
+                <p className="flex justify-end">
+                  {formatUnits((interval as bigint) ?? BigInt(0), 18)}
+                </p>
               </div>
               <div className="window-body ">
                 <article className="">
