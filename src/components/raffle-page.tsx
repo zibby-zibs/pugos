@@ -13,6 +13,7 @@ import {
 } from "wagmi";
 import Loading from "./loading";
 import Transaction from "./transaction";
+import { toast } from "sonner";
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -60,7 +61,14 @@ const Rafflepage = ({ open, setOpen }: Props) => {
   const { writeContractAsync, data } = useWriteContract();
 
   const handleBuyTicket = async () => {
+    if (!address)
+      return toast.warning("Go back to connect your wallet", {
+        className: "window raised-panel text-sm p-2 border-0",
+        duration: 5000,
+        position: "top-center",
+      });
     setLoadingTx(true);
+    setTransactionSuccess(false);
 
     const amount = Number(entranceFee ?? 0) * value!!;
     writeContractAsync(
@@ -73,9 +81,12 @@ const Rafflepage = ({ open, setOpen }: Props) => {
       {
         onSuccess(data, variables, context) {
           setLoadingTx(false);
+          setTransactionSuccess(true);
         },
         onError(error) {
+          setLoadingTx(false);
           console.log(error);
+          setTransactionSuccess(false);
         },
       }
     );
@@ -157,13 +168,29 @@ const Rafflepage = ({ open, setOpen }: Props) => {
                   <div className="">
                     <input
                       placeholder="Enter amount"
-                      type="number"
+                      type="text"
                       value={value}
-                      onChange={(e) => setValue(Number(e.target.value))}
+                      onChange={(e) => {
+                        // Allow only numeric input or decimal values
+                        // const value = e.target.value;
+                        // if (/^[0-9]\.?[0-9]$/.test(value)) {
+                        //   field.onChange(Number(value));
+                        // }
+
+                        const value = e.target.value;
+                        // Check if the value is either empty, a single decimal point, or a valid number (integer or decimal)
+                        if (
+                          value === "" ||
+                          /^[0-9]+\.?([0-9]+)?$/.test(value)
+                        ) {
+                          // Directly pass the value without converting it to Number
+                          setValue(Number(value));
+                        }
+                      }}
                       className="w-full !border-[4px]"
                     />
                     <div className="flex items-center gap-2 justify-center mt-3">
-                      <button>Buy</button>
+                      <button onClick={handleBuyTicket}>Buy</button>
                     </div>
                   </div>
                 </section>

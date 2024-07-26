@@ -7,6 +7,7 @@ import { cookieToInitialState } from "wagmi";
 import localFont from "next/font/local";
 import { config } from "@/config";
 import Web3ModalProvider from "@/context";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
       <body className={ms_sans.className}>
         <Web3ModalProvider initialState={initialState}>
           <div className="text-black">{children}</div>
+          <Toaster />
         </Web3ModalProvider>
       </body>
     </html>
