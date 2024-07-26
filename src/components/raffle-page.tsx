@@ -22,7 +22,7 @@ type Props = {
 const Rafflepage = ({ open, setOpen }: Props) => {
   const [value, setValue] = useState<number | undefined>(undefined);
   const [loadingTx, setLoadingTx] = useState(false);
-  const [transactionSuccess, setTransactionSuccess] = useState(true);
+  const [transactionSuccess, setTransactionSuccess] = useState(false);
   const { address } = useAccount();
   const {
     data: entranceFee,
@@ -76,7 +76,8 @@ const Rafflepage = ({ open, setOpen }: Props) => {
         abi: contractAbi,
         address: contractAddress,
         functionName: "enterRaffle",
-        args: [amount],
+        args: [],
+        value: BigInt(amount),
       },
       {
         onSuccess(data, variables, context) {
@@ -85,6 +86,11 @@ const Rafflepage = ({ open, setOpen }: Props) => {
         },
         onError(error) {
           setLoadingTx(false);
+          toast.error((error as BaseError)?.shortMessage, {
+            className: "window raised-panel text-sm p-2 border-0",
+            duration: 7000,
+            position: "top-center",
+          });
           console.log(error);
           setTransactionSuccess(false);
         },
