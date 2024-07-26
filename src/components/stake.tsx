@@ -52,9 +52,8 @@ const Stake = ({ open, setOpen }: Props) => {
 
           <section className=" w-full !flex items-center">
             <div className="raised-body w-full h-24 !flex items-center justify-center gap-3 !border-y-blue-700">
-              <p className="text-xl">PugOs</p>
               <div>
-                <p className="text-lg font-bold">DEP FEE</p>
+                <p className="text-lg font-bold">Reward Earned</p>
                 <p>0%</p>
               </div>
             </div>
@@ -73,7 +72,7 @@ const Stake = ({ open, setOpen }: Props) => {
           </section>
           <div className="raised-body w-full !flex items-center justify-center !border-y-blue-700 !p-4">
             <div className="text-center w-full">
-              <p className="text-lg font-bold">Total value staked($)</p>
+              <p className="text-lg font-bold">My Total value staked($)</p>
               <p className="text-center">$119,231.23</p>
             </div>
           </div>
@@ -120,6 +119,26 @@ const Stake = ({ open, setOpen }: Props) => {
                             type="number"
                           />
                           <button>stake</button>
+                        </div>
+                        {/* <button className="mt-2 w-full">Stake</button> */}
+                      </aside>
+                    </div>
+                  </div>
+                )}
+                {activeTab === 1 && (
+                  <div className=" interactive bg-[#c6c6c6] !p-2">
+                    <div className="flex justify-between gap-4">
+                      <aside>
+                        <p className="text-base font-semibold">unstake pug</p>
+                      </aside>
+                      <aside>
+                        <div className="flex items-center gap-2">
+                          <input
+                            placeholder="Enter Amount"
+                            className="rounded-lg"
+                            type="number"
+                          />
+                          <button>unstake</button>
                         </div>
                         {/* <button className="mt-2 w-full">Stake</button> */}
                       </aside>
