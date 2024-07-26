@@ -46,7 +46,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={ms_sans.className}>
         <Web3ModalProvider initialState={initialState}>
-          {children}
+          <div className="text-black">{children}</div>
         </Web3ModalProvider>
       </body>
     </html>

@@ -42,7 +42,7 @@ const Navbar = ({
               className="font-bold flex items-center gap-2 text-lg p-3 !extra-button"
             >
               <Image
-                src="/love-icon.png"
+                src="/bone-icon.png"
                 alt=""
                 height={0}
                 width={0}
