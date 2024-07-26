@@ -66,28 +66,6 @@ const NavigationPanel = ({
         </p>
 
         <aside className="relative z-10 flex flex-col gap-3 h-[300px] overflow-y-auto">
-          {socials.map((social) => (
-            <Link
-              href={social.link}
-              key={social.id}
-              className="hover:bg-blue-800"
-              target="_blank"
-            >
-              <div className="flex items-center gap-5 p-4">
-                <Image
-                  src={social.icon}
-                  alt={social.name}
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                  className="object-contain h-[20px] w-[20px]"
-                />
-                <article className="mt-2">
-                  <p className="text-xl font-bold text-center">{social.name}</p>
-                </article>
-              </div>
-            </Link>
-          ))}
           <aside className="relative z-10 h-full flex flex-col gap-3 ">
             <div
               className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
@@ -138,6 +116,28 @@ const NavigationPanel = ({
               <p className="text-xl font-bold">Docs</p>
             </div>
           </aside>
+          {socials.map((social) => (
+            <Link
+              href={social.link}
+              key={social.id}
+              className="hover:bg-blue-800"
+              target="_blank"
+            >
+              <div className="flex items-center gap-5 p-4">
+                <Image
+                  src={social.icon}
+                  alt={social.name}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  className="object-contain h-[20px] w-[20px]"
+                />
+                <article className="mt-2">
+                  <p className="text-xl font-bold text-center">{social.name}</p>
+                </article>
+              </div>
+            </Link>
+          ))}
         </aside>
       </section>
     </div>
