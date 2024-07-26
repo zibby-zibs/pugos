@@ -32,6 +32,17 @@ const Navbar = ({
 
   const { open: openModal } = useWeb3Modal();
   const { address } = useAccount();
+
+  const updateTime = () => {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "pm" : "am";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    return `${formattedHours}:${formattedMinutes}${ampm}`;
+  };
+
   return (
     <main className="w-full bg-[#c6c6c6]">
       <main className="">
@@ -84,6 +95,9 @@ const Navbar = ({
             ) : null}
           </aside>
           {/* <Button className=""> */}
+          <aside className="sunken-panel text-lg bg-[#c6c6c6] p-2">
+            {updateTime()}
+          </aside>
         </section>
       </main>
     </main>
