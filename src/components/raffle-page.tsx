@@ -1,8 +1,10 @@
 "use client";
 
+import { contractAbi, contractAddress } from "@/lib/contract-details";
 import Image from "next/image";
 import React, { useState } from "react";
 import { BiX } from "react-icons/bi";
+import { useAccount, useReadContract } from "wagmi";
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,6 +12,41 @@ type Props = {
 
 const Rafflepage = ({ open, setOpen }: Props) => {
   const [value, setValue] = useState<number | undefined>(undefined);
+  const { address } = useAccount();
+  const {
+    data: entranceFee,
+    isLoading: isLoadingEntranceFee,
+    refetch: refetchEntranceFee,
+  } = useReadContract({
+    abi: contractAbi,
+    address: contractAddress,
+    functionName: "getEntranceFee",
+  });
+  const {
+    data: interval,
+    isLoading: isLoadingInterval,
+    refetch: refetchInterval,
+  } = useReadContract({
+    abi: contractAbi,
+    address: contractAddress,
+    functionName: "getInterval",
+  });
+  const {
+    data: raffleState,
+    isLoading: isLoadingRaffleState,
+    refetch: refetchRaffleState,
+  } = useReadContract({
+    abi: contractAbi,
+    address: contractAddress,
+    functionName: "getRaffleState",
+  });
+
+  useEffect(() => {
+    refetchEntranceFee();
+    refetchInterval();
+    refetchRaffleState();
+  }, [address]);
+
   return (
     <main
       className={`${
