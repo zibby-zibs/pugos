@@ -64,6 +64,56 @@ const NavigationPanel = ({
         <p className="font-semibold !absolute -rotate-90 w-fit top-[150px] text-xl text-white tracking-wider -left-[75px]">
           pugOs start menu
         </p>
+        <aside className="relative z-10 h-full flex flex-col gap-3 ">
+          <div
+            className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
+            onClick={() => {
+              setOpenRaffle(true);
+              setOpen(false);
+            }}
+          >
+            <Image
+              src={"/raffle-icon.png"}
+              alt=""
+              width={20}
+              height={20}
+              sizes="100vw"
+              className="object-contain"
+            />
+            <p className="text-xl font-bold">Raffle</p>
+          </div>
+          <div
+            className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
+            onClick={() => {
+              setOpenStake(true);
+              setOpen(false);
+            }}
+          >
+            <Image
+              src={"/stake-icon.png"}
+              alt=""
+              width={20}
+              height={20}
+              sizes="100vw"
+              className="object-contain"
+            />
+            <p className="text-xl font-bold">Stake</p>
+          </div>
+          <div
+            className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
+            //   onClick={() => setOpenStake(true)}
+          >
+            <Image
+              src={"/docs.png"}
+              alt=""
+              width={20}
+              height={20}
+              sizes="100vw"
+              className="object-contain"
+            />
+            <p className="text-xl font-bold">Docs</p>
+          </div>
+        </aside>
         <aside className="relative z-10 flex flex-col gap-3 h-[300px] overflow-y-auto">
           {socials.map((social) => (
             <Link
@@ -87,56 +137,6 @@ const NavigationPanel = ({
               </div>
             </Link>
           ))}
-          <aside className="relative z-10 h-full flex flex-col gap-3 ">
-            <div
-              className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
-              onClick={() => {
-                setOpenRaffle(true);
-                setOpen(false);
-              }}
-            >
-              <Image
-                src={"/raffle-icon.png"}
-                alt=""
-                width={20}
-                height={20}
-                sizes="100vw"
-                className="object-contain"
-              />
-              <p className="text-xl font-bold">Raffle</p>
-            </div>
-            <div
-              className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
-              onClick={() => {
-                setOpenStake(true);
-                setOpen(false);
-              }}
-            >
-              <Image
-                src={"/stake-icon.png"}
-                alt=""
-                width={20}
-                height={20}
-                sizes="100vw"
-                className="object-contain"
-              />
-              <p className="text-xl font-bold">Stake</p>
-            </div>
-            <div
-              className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
-              //   onClick={() => setOpenStake(true)}
-            >
-              <Image
-                src={"/docs.png"}
-                alt=""
-                width={20}
-                height={20}
-                sizes="100vw"
-                className="object-contain"
-              />
-              <p className="text-xl font-bold">Docs</p>
-            </div>
-          </aside>
         </aside>
       </section>
     </div>
