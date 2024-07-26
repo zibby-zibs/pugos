@@ -66,25 +66,25 @@ const Stake = ({ open, setOpen }: Props) => {
             </div>
             <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700">
               <div>
-                <p className="text-lg font-bold">RATIO</p>
+                <p className="text-lg font-bold">VAULT TVL</p>
                 <p>2.931LOVE/FAITH</p>
               </div>
             </div>
           </section>
           <div className="raised-body w-full !flex items-center justify-center !border-y-blue-700 !p-4">
             <div className="text-center w-full">
-              <p className="text-lg font-bold">Total Staked Love</p>
+              <p className="text-lg font-bold">Total value staked($)</p>
               <p className="text-center">$119,231.23</p>
             </div>
           </div>
           <section className="raised-body w-full border-y-blue-700 !p-3">
             <div className="flex w-full justify-between">
-              <div>
+              {/* <div>
                 <p className="">View Contract</p>
                 <p className="text-xl">LOVE</p>
-              </div>
+              </div> */}
             </div>
-            <div className="-mt-3">
+            <div className="">
               <div className="!flex !justify-end">
                 <menu role="tablist">
                   <li
@@ -108,21 +108,18 @@ const Stake = ({ open, setOpen }: Props) => {
                   <div className=" interactive bg-[#c6c6c6] !p-2">
                     <div className="flex justify-between gap-4">
                       <aside>
-                        <p className="text-base">STAKE LOVE,</p>
-                        <p className="text-base">get FAITH</p>
+                        <p className="text-base font-semibold">stake pug</p>
                       </aside>
                       <aside>
-                        <p>Unstaked LOVE balance</p>
-                        <p>0.000000000239443</p>
                         <div className="flex items-center gap-2">
                           <input
-                            placeholder="Enter amount"
+                            placeholder="NFT contract address"
                             className="rounded-lg"
                             type="number"
                           />
-                          <button>max</button>
+                          <button>stake</button>
                         </div>
-                        <button className="mt-2 w-full">Stake</button>
+                        {/* <button className="mt-2 w-full">Stake</button> */}
                       </aside>
                     </div>
                   </div>

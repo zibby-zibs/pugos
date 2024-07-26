@@ -8,6 +8,7 @@ import Stake from "./stake";
 import Rafflepage from "./raffle-page";
 import Loader from "./loader";
 import Link from "next/link";
+import NavigationPanel from "./navigation-panel";
 
 type Props = {};
 
@@ -16,6 +17,7 @@ const Homepage = (props: Props) => {
   const [open, setOpen] = useState(false);
   const [openStake, setOpenStake] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [openNav, setOpenNav] = useState(false);
   const socials = [
     {
       id: 1,
@@ -98,7 +100,7 @@ const Homepage = (props: Props) => {
                   width={0}
                   height={0}
                   sizes="100vw"
-                  className="object-contain h-[80px] w-[80px]"
+                  className="object-contain h-[40px] w-[40px] lg:h-[80px] lg:w-[80px]"
                 />
                 <article className="mt-2">
                   <p className="text-xl font-bold text-center">{social.name}</p>
@@ -120,7 +122,7 @@ const Homepage = (props: Props) => {
               sizes="100vw"
               className="object-contain"
             />
-            <p className="text-xl font-bold">Raflle</p>
+            <p className="text-xl font-bold">Raffle</p>
           </div>
           <div
             className="text-center cursor-pointer"
@@ -129,10 +131,10 @@ const Homepage = (props: Props) => {
             <Image
               src={"/stake-icon.png"}
               alt=""
-              width={60}
-              height={60}
+              width={0}
+              height={0}
               sizes="100vw"
-              className="object-contain"
+              className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px]"
             />
             <p className="text-xl font-bold">Stake</p>
           </div>
@@ -148,6 +150,18 @@ const Homepage = (props: Props) => {
         <Navbar
           setOpen={setOpen}
           open={open}
+          openStake={openStake}
+          setOpenStake={setOpenStake}
+          openNav={openNav}
+          setOpenNav={setOpenNav}
+        />
+      </section>
+      <section className="fixed bottom-[68px] z-50 bg-[#c6c6c6] ">
+        <NavigationPanel
+          open={openNav}
+          setOpen={setOpenNav}
+          openRaffle={open}
+          setOpenRaffle={setOpen}
           openStake={openStake}
           setOpenStake={setOpenStake}
         />

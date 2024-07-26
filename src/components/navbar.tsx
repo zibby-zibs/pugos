@@ -9,16 +9,27 @@ import WalletModal from "./wallet-modal";
 import { Account } from "./account";
 import Image from "next/image";
 import { useAccount } from "wagmi";
+import NavigationPanel from "./navigation-panel";
 
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   openStake: boolean;
   setOpenStake: React.Dispatch<React.SetStateAction<boolean>>;
+  openNav: boolean;
+  setOpenNav: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Navbar = ({ open, setOpen, openStake, setOpenStake }: Props) => {
+const Navbar = ({
+  open,
+  setOpen,
+  openStake,
+  setOpenStake,
+  openNav,
+  setOpenNav,
+}: Props) => {
   // const [openWallets, setOpenWallets] = useState(false);
+
   const { open: openModal } = useWeb3Modal();
   const { address } = useAccount();
   return (
@@ -26,7 +37,10 @@ const Navbar = ({ open, setOpen, openStake, setOpenStake }: Props) => {
       <main className="">
         <section className="flex flex-row items-center justify-between !w-full p-2">
           <aside className="flex items-center gap-2">
-            <button className="font-bold flex items-center gap-2 text-lg p-3 !extra-button">
+            <button
+              onClick={() => setOpenNav(!openNav)}
+              className="font-bold flex items-center gap-2 text-lg p-3 !extra-button"
+            >
               <Image
                 src="/love-icon.png"
                 alt=""
