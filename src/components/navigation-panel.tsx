@@ -90,7 +90,10 @@ const NavigationPanel = ({
           <aside className="relative z-10 h-full flex flex-col gap-3 ">
             <div
               className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
-              onClick={() => setOpenRaffle(true)}
+              onClick={() => {
+                setOpenRaffle(true);
+                setOpen(false);
+              }}
             >
               <Image
                 src={"/raffle-icon.png"}
@@ -104,7 +107,10 @@ const NavigationPanel = ({
             </div>
             <div
               className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
-              onClick={() => setOpenStake(true)}
+              onClick={() => {
+                setOpenStake(true);
+                setOpen(false);
+              }}
             >
               <Image
                 src={"/stake-icon.png"}
