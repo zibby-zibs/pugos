@@ -90,14 +90,16 @@ const Stake = ({ open, setOpen }: Props) => {
                   <li
                     role="tab"
                     aria-selected={activeTab === 0}
-                    className="p-2"
+                    className="p-2 cursor-pointer"
+                    onClick={() => setActiveTab(0)}
                   >
                     STAKE
                   </li>
                   <li
                     role="tab"
                     aria-selected={activeTab === 1}
-                    className="p-2"
+                    className="p-2 cursor-pointer"
+                    onClick={() => setActiveTab(1)}
                   >
                     UNSTAKE
                   </li>
