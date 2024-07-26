@@ -51,22 +51,22 @@ const Stake = ({ open, setOpen }: Props) => {
           </section>
 
           <section className=" w-full !flex items-center">
-            <div className="raised-body w-full h-24 !flex items-center justify-center gap-3 !border-y-blue-700">
+            <div className="raised-body w-full h-24 !flex items-center justify-center gap-3 !border-y-blue-700 !p-2">
               <div>
-                <p className="text-lg font-bold">Reward Earned</p>
-                <p>0%</p>
+                <p className="text-lg font-bold text-center">Rewards Earned</p>
+                <p className="text-center">0</p>
               </div>
             </div>
-            <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700">
+            <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700 !p-2">
               <div>
                 <p className="text-lg font-bold">APY</p>
-                <p>22%</p>
+                <p className="text-center">22%</p>
               </div>
             </div>
-            <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700">
+            <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700 !p-2">
               <div>
                 <p className="text-lg font-bold">VAULT TVL</p>
-                <p>2.931Pug/ETH</p>
+                <p className="text-center">2.931Pug/ETH</p>
               </div>
             </div>
           </section>
