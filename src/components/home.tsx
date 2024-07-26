@@ -22,13 +22,13 @@ const Homepage = (props: Props) => {
     {
       id: 1,
       name: "Twitter",
-      link: "#",
+      link: "https://x.com/puglifegame?s=21",
       icon: "/pixel-x.png",
     },
     {
       id: 2,
       name: "Discord",
-      link: "#",
+      link: "http://discord.gg/puglife",
       icon: "/pixel-discord.png",
     },
     {
@@ -42,6 +42,18 @@ const Homepage = (props: Props) => {
       name: "Trade NFTs",
       link: "https://blast.mintify.xyz/blast/0x89ae653674178738854c83426c6ac6be69900766",
       icon: "/mintify-pixel.png",
+    },
+    {
+      id: 5,
+      name: "Medium",
+      link: "https://medium.com/@puglifegame",
+      icon: "/medium-pixel.png",
+    },
+    {
+      id: 6,
+      name: "Youtube",
+      link: "https://youtube.com/@puglifegame?si=1UqtlGc7ADTN1aaj",
+      icon: "/youtube-pixel.png",
     },
     // {
     //     id: 5,

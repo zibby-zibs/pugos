@@ -46,6 +46,18 @@ const NavigationPanel = ({
       link: "https://blast.mintify.xyz/blast/0x89ae653674178738854c83426c6ac6be69900766",
       icon: "/mintify-pixel.png",
     },
+    {
+      id: 5,
+      name: "Medium",
+      link: "https://medium.com/@puglifegame",
+      icon: "/medium-pixel.png",
+    },
+    {
+      id: 6,
+      name: "Youtube",
+      link: "https://youtube.com/@puglifegame?si=1UqtlGc7ADTN1aaj",
+      icon: "/youtube-pixel.png",
+    },
     // {
     //     id: 5,
     //     name: "Etherscan",
@@ -102,18 +114,23 @@ const NavigationPanel = ({
               <p className="text-xl font-bold">Stake</p>
             </div>
             <div
-              className="text-center flex items-center gap-5 cursor-pointer p-4 hover:bg-blue-700"
+              className=""
               //   onClick={() => setOpenStake(true)}
             >
-              <Image
-                src={"/docs.png"}
-                alt=""
-                width={20}
-                height={20}
-                sizes="100vw"
-                className="object-contain"
-              />
-              <p className="text-xl font-bold">Docs</p>
+              <Link
+                className="p-4 text-center flex items-center gap-5 cursor-pointer hover:bg-blue-700"
+                href={"https://dreamfinity.gitbook.io/pug-life-by-dreamfinity"}
+              >
+                <Image
+                  src={"/docs.png"}
+                  alt=""
+                  width={20}
+                  height={20}
+                  sizes="100vw"
+                  className="object-contain"
+                />
+                <p className="text-xl font-bold">Docs</p>
+              </Link>
             </div>
           </aside>
           {socials.map((social) => (
