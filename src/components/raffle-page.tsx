@@ -5,7 +5,14 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { BiX } from "react-icons/bi";
 import { formatUnits } from "viem";
-import { useAccount, useReadContract } from "wagmi";
+import {
+  useAccount,
+  useReadContract,
+  useWriteContract,
+  BaseError,
+} from "wagmi";
+import Loading from "./loading";
+import Transaction from "./transaction";
 type Props = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,6 +20,8 @@ type Props = {
 
 const Rafflepage = ({ open, setOpen }: Props) => {
   const [value, setValue] = useState<number | undefined>(undefined);
+  const [loadingTx, setLoadingTx] = useState(false);
+  const [transactionSuccess, setTransactionSuccess] = useState(true);
   const { address } = useAccount();
   const {
     data: entranceFee,
@@ -47,6 +56,30 @@ const Rafflepage = ({ open, setOpen }: Props) => {
     refetchInterval();
     refetchRaffleState();
   }, [address]);
+
+  const { writeContractAsync, data } = useWriteContract();
+
+  const handleBuyTicket = async () => {
+    setLoadingTx(true);
+
+    const amount = Number(entranceFee ?? 0) * value!!;
+    writeContractAsync(
+      {
+        abi: contractAbi,
+        address: contractAddress,
+        functionName: "enterRaffle",
+        args: [amount],
+      },
+      {
+        onSuccess(data, variables, context) {
+          setLoadingTx(false);
+        },
+        onError(error) {
+          console.log(error);
+        },
+      }
+    );
+  };
 
   return (
     <main
@@ -138,9 +171,7 @@ const Rafflepage = ({ open, setOpen }: Props) => {
 
               <div className=" window-body bg-[#c6c6c6]  sunken-panel !p-4  font-semibold">
                 <p className="">Time to next game</p>
-                <p className="flex justify-end">
-                  {formatUnits((interval as bigint) ?? BigInt(0), 18)}
-                </p>
+                <p className="flex justify-end">{Number(interval ?? 0)} secs</p>
               </div>
               <div className="window-body ">
                 <article className="">
@@ -247,6 +278,12 @@ const Rafflepage = ({ open, setOpen }: Props) => {
         </WindowHeader>
         <WindowContent>I am not active</WindowContent>
       </Window> */}
+        <Loading open={loadingTx} />
+        <Transaction
+          open={transactionSuccess}
+          setOpen={setTransactionSuccess}
+          hash={data!!}
+        />
       </div>
     </main>
   );

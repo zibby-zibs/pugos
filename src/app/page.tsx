@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-svh max-h-svh relative">
+    <main className="flex min-h-svh max-h-svh max-w-screen overflow-hidden relative">
       <section className="relative z-10">
         <Homepage />
       </section>
