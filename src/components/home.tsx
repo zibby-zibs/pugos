@@ -117,10 +117,10 @@ const Homepage = (props: Props) => {
             <Image
               src={"/raffle-icon.png"}
               alt=""
-              width={60}
-              height={60}
+              width={0}
+              height={0}
               sizes="100vw"
-              className="object-contain"
+              className="object-contain w-[40px] h-[40px] lg:h-[60px] lg:w-[60px]"
             />
             <p className="text-xl font-bold">Raffle</p>
           </div>

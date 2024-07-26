@@ -25,13 +25,13 @@ const Stake = ({ open, setOpen }: Props) => {
     <main
       className={`${
         open
-          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50  animate-in duration-300"
+          ? "fixed top-0 left-0 inset-0 flex items-center justify-center z-50 bg-white/30 backdrop-blur-sm lg:bg-transparent lg:backdrop-blur-[0px]"
           : "hidden"
       }`}
     >
       <div
-        className={`min-h-screen max-h-svh overflow-hidden relative items-center justify-center w-[70%] ${
-          open ? "flex animate-in duration-300" : "hidden"
+        className={`min-h-screen animate-in duration-300 max-h-svh overflow-hidden relative items-center justify-center w-full lg:w-[70%] ${
+          open ? "flex" : "hidden"
         }`}
       >
         <main className="window relative z-10 w-full lg:w-[70%] p-4">
@@ -67,7 +67,7 @@ const Stake = ({ open, setOpen }: Props) => {
             <div className="raised-body w-full h-24 !flex items-center justify-center !border-y-blue-700">
               <div>
                 <p className="text-lg font-bold">VAULT TVL</p>
-                <p>2.931LOVE/FAITH</p>
+                <p>2.931Pug/ETH</p>
               </div>
             </div>
           </section>
